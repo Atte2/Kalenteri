@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tapahtuman poistaminen</title>
+</head>
+<body>
+<h1>Tapahtuman poistaminen</h1>
+
+<p>Oletko varma, että haluat poistaa tapahtuman <span th:text="${event.title}"></span>?</p>
+
+<form th:action="@{/events/{id}/delete(id=${event.id})}" method="post">
+    <button type="submit">Poista</button>
+</form>
+
+<a href="/events">Peruuta</a>
+</body>
+</html>
+
+

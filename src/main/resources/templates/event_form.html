@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tapahtuman luominen / muokkaaminen</title>
+</head>
+<body>
+<h1 th:text="${event.id == null ? 'Luo uusi tapahtuma' : 'Muokkaa tapahtumaa'}"></h1>
+
+<form th:action="@{/events}" th:object="${event}" method="post">
+    <label for="title">Otsikko:</label>
+    <input type="text" id="title" th:field="*{title}" required /><br><br>
+
+    <label for="description">Kuvaus:</label>
+    <textarea id="description" th:field="*{description}" required></textarea><br><br>
+
+    <label for="date">Päivämäärä:</label>
+    <input type="datetime-local" id="date" th:field="*{date}" required /><br><br>
+
+    <button type="submit">Tallenna</button>
+</form>
+
+<a href="/events">Takaisin tapahtumien listaan</a>
+</body>
+</html>
